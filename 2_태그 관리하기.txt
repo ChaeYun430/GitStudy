@@ -1,0 +1,94 @@
+LeeChaeYun@220-18 MINGW64 ~/desktop/test (master)
+$ git log
+commit 5d09745a6c767205783bd9e7514e2b016ace0cd5 (HEAD -> master)
+Author: 220-18\LeeChaeYun <marchlcy@gmail.com>
+Date:   Sun Jun 8 14:21:02 2025 +0900
+
+    third commit
+
+    this is my third commit
+
+commit 7ae2bdac4ae8f1733978deac0997ec00a2b3bd54
+Author: 220-18\LeeChaeYun <marchlcy@gmail.com>
+Date:   Sun Jun 8 14:17:46 2025 +0900
+
+    second commit
+
+commit 0b724cfdd1708ce6b8a54d877fa6bf833ae15390
+Author: 220-18\LeeChaeYun <marchlcy@gmail.com>
+Date:   Sun Jun 8 14:13:29 2025 +0900
+
+    first commit
+
+LeeChaeYun@220-18 MINGW64 ~/desktop/test (master)
+$ git tag v1.0.0
+
+LeeChaeYun@220-18 MINGW64 ~/desktop/test (master)
+$ git log
+commit 5d09745a6c767205783bd9e7514e2b016ace0cd5 (HEAD -> master, tag: v1.0.0)
+Author: 220-18\LeeChaeYun <marchlcy@gmail.com>
+Date:   Sun Jun 8 14:21:02 2025 +0900
+
+    third commit
+
+    this is my third commit
+
+commit 7ae2bdac4ae8f1733978deac0997ec00a2b3bd54
+Author: 220-18\LeeChaeYun <marchlcy@gmail.com>
+Date:   Sun Jun 8 14:17:46 2025 +0900
+
+    second commit
+
+commit 0b724cfdd1708ce6b8a54d877fa6bf833ae15390
+Author: 220-18\LeeChaeYun <marchlcy@gmail.com>
+Date:   Sun Jun 8 14:13:29 2025 +0900
+
+    first commit
+
+LeeChaeYun@220-18 MINGW64 ~/desktop/test (master)
+$ git log --oneline
+5d09745 (HEAD -> master, tag: v1.0.0) third commit
+7ae2bda second commit
+0b724cf first commit
+
+LeeChaeYun@220-18 MINGW64 ~/desktop/test (master)
+$ git tag v0.0.1 7ae2bda
+
+LeeChaeYun@220-18 MINGW64 ~/desktop/test (master)
+$ git log --oneline
+5d09745 (HEAD -> master, tag: v1.0.0) third commit
+7ae2bda (tag: v0.0.1) second commit
+0b724cf first commit
+
+LeeChaeYun@220-18 MINGW64 ~/desktop/test (master)
+$ git tag --list
+v0.0.1
+v1.0.0
+
+LeeChaeYun@220-18 MINGW64 ~/desktop/test (master)
+$ git tag -l
+v0.0.1
+v1.0.0
+
+LeeChaeYun@220-18 MINGW64 ~/desktop/test (master)
+$ git tag
+v0.0.1
+v1.0.0
+
+LeeChaeYun@220-18 MINGW64 ~/desktop/test (master)
+$ git tag --delete v0.0.1
+Deleted tag 'v0.0.1' (was 7ae2bda)
+
+LeeChaeYun@220-18 MINGW64 ~/desktop/test (master)
+$ git tag
+v1.0.0
+
+LeeChaeYun@220-18 MINGW64 ~/desktop/test (master)
+$ git tag -d v1.0.0
+Deleted tag 'v1.0.0' (was 5d09745)
+
+LeeChaeYun@220-18 MINGW64 ~/desktop/test (master)
+$ git tag
+
+LeeChaeYun@220-18 MINGW64 ~/desktop/test (master)
+$

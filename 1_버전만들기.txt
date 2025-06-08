@@ -1,0 +1,237 @@
+
+LeeChaeYun@220-18 MINGW64 ~
+$ pwd
+/c/Users/LeeChaeYun
+
+LeeChaeYun@220-18 MINGW64 ~
+$ cd desktop
+
+LeeChaeYun@220-18 MINGW64 ~/desktop
+$ cd test
+
+LeeChaeYun@220-18 MINGW64 ~/desktop/test
+$ cd..
+bash: cd..: command not found
+
+LeeChaeYun@220-18 MINGW64 ~/desktop/test
+$ cd ..
+
+LeeChaeYun@220-18 MINGW64 ~/desktop
+$ cd test
+
+LeeChaeYun@220-18 MINGW64 ~/desktop/test
+$ git init
+Initialized empty Git repository in C:/Users/LeeChaeYun/Desktop/test/.git/
+
+LeeChaeYun@220-18 MINGW64 ~/desktop/test (master)
+$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        a.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+LeeChaeYun@220-18 MINGW64 ~/desktop/test (master)
+$ git add a.txt
+
+LeeChaeYun@220-18 MINGW64 ~/desktop/test (master)
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   a.txt
+
+
+LeeChaeYun@220-18 MINGW64 ~/desktop/test (master)
+$ git add .
+
+LeeChaeYun@220-18 MINGW64 ~/desktop/test (master)
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   a.txt
+        new file:   b.txt
+        new file:   c.txt
+
+
+LeeChaeYun@220-18 MINGW64 ~/desktop/test (master)
+$ git commit -m"first commit" //git commit -message "커밋 메시지"
+[master (root-commit) 0b724cf] first commit
+ 3 files changed, 3 insertions(+)
+ create mode 100644 a.txt
+ create mode 100644 b.txt
+ create mode 100644 c.txt
+
+LeeChaeYun@220-18 MINGW64 ~/desktop/test (master)
+$ git log
+commit 0b724cfdd1708ce6b8a54d877fa6bf833ae15390 (HEAD -> master)
+Author: 220-18\LeeChaeYun <marchlcy@gmail.com>
+Date:   Sun Jun 8 14:13:29 2025 +0900
+
+    first commit
+
+LeeChaeYun@220-18 MINGW64 ~/desktop/test (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   a.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        d.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+LeeChaeYun@220-18 MINGW64 ~/desktop/test (master)
+$ git commit -am "second commit" // git commit -a -m "커밋 메시지", git   commit --all --message "커밋 메시지"
+[master 7ae2bda] second commit
+ 1 file changed, 1 insertion(+)
+
+LeeChaeYun@220-18 MINGW64 ~/desktop/test (master)
+$ git log
+commit 7ae2bdac4ae8f1733978deac0997ec00a2b3bd54 (HEAD -> master)
+Author: 220-18\LeeChaeYun <marchlcy@gmail.com>
+Date:   Sun Jun 8 14:17:46 2025 +0900
+
+    second commit
+
+commit 0b724cfdd1708ce6b8a54d877fa6bf833ae15390
+Author: 220-18\LeeChaeYun <marchlcy@gmail.com>
+Date:   Sun Jun 8 14:13:29 2025 +0900
+
+    first commit
+
+LeeChaeYun@220-18 MINGW64 ~/desktop/test (master)
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        d.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+LeeChaeYun@220-18 MINGW64 ~/desktop/test (master)
+$ git commit d.txt
+error: pathspec 'd.txt' did not match any file(s) known to git
+
+LeeChaeYun@220-18 MINGW64 ~/desktop/test (master)
+$ git add d.txt
+
+LeeChaeYun@220-18 MINGW64 ~/desktop/test (master)
+$ git commit // input a/i -> INSERT -> firstLine(제목) thirdLine~(본문) -> ESC -> :w -> :q 
+[master 5d09745] third commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 d.txt
+
+LeeChaeYun@220-18 MINGW64 ~/desktop/test (master)
+$ git log
+commit 5d09745a6c767205783bd9e7514e2b016ace0cd5 (HEAD -> master)
+Author: 220-18\LeeChaeYun <marchlcy@gmail.com>
+Date:   Sun Jun 8 14:21:02 2025 +0900
+
+    third commit
+
+    this is my third commit
+
+commit 7ae2bdac4ae8f1733978deac0997ec00a2b3bd54
+Author: 220-18\LeeChaeYun <marchlcy@gmail.com>
+Date:   Sun Jun 8 14:17:46 2025 +0900
+
+    second commit
+
+commit 0b724cfdd1708ce6b8a54d877fa6bf833ae15390
+Author: 220-18\LeeChaeYun <marchlcy@gmail.com>
+Date:   Sun Jun 8 14:13:29 2025 +0900
+
+    first commit
+
+LeeChaeYun@220-18 MINGW64 ~/desktop/test (master)
+$ git log --oneline
+5d09745 (HEAD -> master) third commit
+7ae2bda second commit
+0b724cf first commit
+
+LeeChaeYun@220-18 MINGW64 ~/desktop/test (master)
+$ git log --patch
+commit 5d09745a6c767205783bd9e7514e2b016ace0cd5 (HEAD -> master)
+Author: 220-18\LeeChaeYun <marchlcy@gmail.com>
+Date:   Sun Jun 8 14:21:02 2025 +0900
+
+    third commit
+
+    this is my third commit
+
+diff --git a/d.txt b/d.txt
+new file mode 100644
+index 0000000..1784810
+--- /dev/null
++++ b/d.txt
+@@ -0,0 +1 @@
++D
+
+commit 7ae2bdac4ae8f1733978deac0997ec00a2b3bd54
+Author: 220-18\LeeChaeYun <marchlcy@gmail.com>
+Date:   Sun Jun 8 14:17:46 2025 +0900
+
+    second commit
+
+diff --git a/a.txt b/a.txt
+index f70f10e..ffe305e 100644
+--- a/a.txt
+
+LeeChaeYun@220-18 MINGW64 ~/desktop/test (master)
+$ git log --graph
+* commit 5d09745a6c767205783bd9e7514e2b016ace0cd5 (HEAD -> master)
+| Author: 220-18\LeeChaeYun <marchlcy@gmail.com>
+| Date:   Sun Jun 8 14:21:02 2025 +0900
+|
+|     third commit
+|
+|     this is my third commit
+|
+* commit 7ae2bdac4ae8f1733978deac0997ec00a2b3bd54
+| Author: 220-18\LeeChaeYun <marchlcy@gmail.com>
+| Date:   Sun Jun 8 14:17:46 2025 +0900
+|
+|     second commit
+|
+* commit 0b724cfdd1708ce6b8a54d877fa6bf833ae15390
+  Author: 220-18\LeeChaeYun <marchlcy@gmail.com>
+  Date:   Sun Jun 8 14:13:29 2025 +0900
+
+      first commit
+
+LeeChaeYun@220-18 MINGW64 ~/desktop/test (master)
+$ git log --branches // 모든 브랜치 확인 가능
+commit 5d09745a6c767205783bd9e7514e2b016ace0cd5 (HEAD -> master)
+Author: 220-18\LeeChaeYun <marchlcy@gmail.com>
+Date:   Sun Jun 8 14:21:02 2025 +0900
+
+    third commit
+
+    this is my third commit
+
+commit 7ae2bdac4ae8f1733978deac0997ec00a2b3bd54
+Author: 220-18\LeeChaeYun <marchlcy@gmail.com>
+Date:   Sun Jun 8 14:17:46 2025 +0900
+
+    second commit
+
+commit 0b724cfdd1708ce6b8a54d877fa6bf833ae15390
+Author: 220-18\LeeChaeYun <marchlcy@gmail.com>
+Date:   Sun Jun 8 14:13:29 2025 +0900
+
+    first commit

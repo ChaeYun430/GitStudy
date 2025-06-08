@@ -1,0 +1,146 @@
+LeeChaeYun@220-18 MINGW64 ~/desktop/test (master)
+$ git log --oneline
+d187d50 (HEAD -> master) forth commit
+5d09745 third commit
+7ae2bda second commit
+0b724cf first commit
+
+LeeChaeYun@220-18 MINGW64 ~/desktop/test (master)
+$ git reset --soft head^
+
+LeeChaeYun@220-18 MINGW64 ~/desktop/test (master)
+$ git log --oneline
+5d09745 (HEAD -> master) third commit
+7ae2bda second commit
+0b724cf first commit
+
+LeeChaeYun@220-18 MINGW64 ~/desktop/test (master)
+$ git diff --staged
+diff --git a/a.txt b/a.txt
+index ffe305e..6ed291c 100644
+--- a/a.txt
++++ b/a.txt
+@@ -1,2 +1,3 @@
+ A
+ change a.txt
++git diff test
+
+LeeChaeYun@220-18 MINGW64 ~/desktop/test (master)
+$ git diff
+
+LeeChaeYun@220-18 MINGW64 ~/desktop/test (master)
+$ git commit -m "forth commit"
+[master 25fb418] forth commit
+ 1 file changed, 1 insertion(+)
+
+LeeChaeYun@220-18 MINGW64 ~/desktop/test (master)
+$ git log --oneline
+25fb418 (HEAD -> master) forth commit
+5d09745 third commit
+7ae2bda second commit
+0b724cf first commit
+
+LeeChaeYun@220-18 MINGW64 ~/desktop/test (master)
+$ git reset head^ //git reset --mixed head~1
+Unstaged changes after reset:
+M       a.txt
+
+LeeChaeYun@220-18 MINGW64 ~/desktop/test (master)
+$ git log --oneline
+5d09745 (HEAD -> master) third commit
+7ae2bda second commit
+0b724cf first commit
+
+LeeChaeYun@220-18 MINGW64 ~/desktop/test (master)
+$ git diff --staged
+
+LeeChaeYun@220-18 MINGW64 ~/desktop/test (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   a.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+LeeChaeYun@220-18 MINGW64 ~/desktop/test (master)
+$ git commit -am "forth commit"
+[master 748e71e] forth commit
+ 1 file changed, 1 insertion(+)
+
+LeeChaeYun@220-18 MINGW64 ~/desktop/test (master)
+$ git log --oneline
+748e71e (HEAD -> master) forth commit
+5d09745 third commit
+7ae2bda second commit
+0b724cf first commit
+
+LeeChaeYun@220-18 MINGW64 ~/desktop/test (master)
+$ git reset --hard head^
+HEAD is now at 5d09745 third commit
+
+LeeChaeYun@220-18 MINGW64 ~/desktop/test (master)
+$ git log --oneline
+5d09745 (HEAD -> master) third commit
+7ae2bda second commit
+0b724cf first commit
+
+LeeChaeYun@220-18 MINGW64 ~/desktop/test (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+LeeChaeYun@220-18 MINGW64 ~/desktop/test (master)
+$ git diff
+
+LeeChaeYun@220-18 MINGW64 ~/desktop/test (master)
+$ git log --oneline
+5d09745 (HEAD -> master) third commit
+7ae2bda second commit
+0b724cf first commit
+
+LeeChaeYun@220-18 MINGW64 ~/desktop/test (master)
+$ git revert head // reset과 혼동 주의, 작업을 되돌릴 커밋을 선택하는 것임
+[master d72e659] Revert "third commit"
+ 1 file changed, 1 deletion(-)
+ delete mode 100644 d.txt
+
+LeeChaeYun@220-18 MINGW64 ~/desktop/test (master)
+$ git log
+commit d72e659367ffe53f26c1cf70e6a66daf4bf0d164 (HEAD -> master)
+Author: 220-18\LeeChaeYun <marchlcy@gmail.com>
+Date:   Sun Jun 8 15:52:46 2025 +0900
+
+    Revert "third commit"
+
+    This reverts commit 5d09745a6c767205783bd9e7514e2b016ace0cd5.
+
+commit 5d09745a6c767205783bd9e7514e2b016ace0cd5
+Author: 220-18\LeeChaeYun <marchlcy@gmail.com>
+Date:   Sun Jun 8 14:21:02 2025 +0900
+
+    third commit
+
+    this is my third commit
+
+commit 7ae2bdac4ae8f1733978deac0997ec00a2b3bd54
+Author: 220-18\LeeChaeYun <marchlcy@gmail.com>
+Date:   Sun Jun 8 14:17:46 2025 +0900
+
+    second commit
+
+commit 0b724cfdd1708ce6b8a54d877fa6bf833ae15390
+Author: 220-18\LeeChaeYun <marchlcy@gmail.com>
+Date:   Sun Jun 8 14:13:29 2025 +0900
+
+    first commit
+
+LeeChaeYun@220-18 MINGW64 ~/desktop/test (master)
+$ git diff head^ head
+diff --git a/d.txt b/d.txt
+deleted file mode 100644
+index 1784810..0000000
+--- a/d.txt
++++ /dev/null
+@@ -

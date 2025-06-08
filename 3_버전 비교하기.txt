@@ -1,0 +1,111 @@
+LeeChaeYun@220-18 MINGW64 ~/desktop/test (master)
+$ git log
+commit 5d09745a6c767205783bd9e7514e2b016ace0cd5 (HEAD -> master)
+Author: 220-18\LeeChaeYun <marchlcy@gmail.com>
+Date:   Sun Jun 8 14:21:02 2025 +0900
+
+    third commit
+
+    this is my third commit
+
+commit 7ae2bdac4ae8f1733978deac0997ec00a2b3bd54
+Author: 220-18\LeeChaeYun <marchlcy@gmail.com>
+Date:   Sun Jun 8 14:17:46 2025 +0900
+
+    second commit
+
+commit 0b724cfdd1708ce6b8a54d877fa6bf833ae15390
+Author: 220-18\LeeChaeYun <marchlcy@gmail.com>
+Date:   Sun Jun 8 14:13:29 2025 +0900
+
+    first commit
+
+LeeChaeYun@220-18 MINGW64 ~/desktop/test (master)
+$ git diff //최근 커밋과 작업 디렉터리 간의 비교
+diff --git a/a.txt b/a.txt
+index ffe305e..6ed291c 100644
+--- a/a.txt
++++ b/a.txt
+@@ -1,2 +1,3 @@
+ A
+ change a.txt
++git diff test
+
+LeeChaeYun@220-18 MINGW64 ~/desktop/test (master)
+$ git add a.txt
+
+LeeChaeYun@220-18 MINGW64 ~/desktop/test (master)
+$ git diff --staged // 최근 커밋과 스테이지 간의 비교
+diff --git a/a.txt b/a.txt
+index ffe305e..6ed291c 100644
+--- a/a.txt
++++ b/a.txt
+@@ -1,2 +1,3 @@
+ A
+ change a.txt
++git diff test
+
+LeeChaeYun@220-18 MINGW64 ~/desktop/test (master)
+$ git commit -m "forth commit"
+[master d187d50] forth commit
+ 1 file changed, 1 insertion(+)
+
+LeeChaeYun@220-18 MINGW64 ~/desktop/test (master)
+$ git log --oneline
+d187d50 (HEAD -> master) forth commit
+5d09745 third commit
+7ae2bda second commit
+0b724cf first commit
+
+LeeChaeYun@220-18 MINGW64 ~/desktop/test (master)
+$ git diff 5d09745 d187d50 // 커밋 간의 비교
+diff --git a/a.txt b/a.txt
+index ffe305e..6ed291c 100644
+--- a/a.txt
++++ b/a.txt
+@@ -1,2 +1,3 @@
+ A
+ change a.txt
++git diff test
+
+LeeChaeYun@220-18 MINGW64 ~/desktop/test (master)
+$ git diff d187d50 5d09745 //전을 기준으로 후가 달라진 점
+diff --git a/a.txt b/a.txt
+index 6ed291c..ffe305e 100644
+--- a/a.txt
++++ b/a.txt
+@@ -1,3 +1,2 @@
+ A
+ change a.txt
+-git diff test
+
+LeeChaeYun@220-18 MINGW64 ~/desktop/test (master)
+$ git diff head~1 head
+diff --git a/a.txt b/a.txt
+index ffe305e..6ed291c 100644
+--- a/a.txt
++++ b/a.txt
+@@ -1,2 +1,3 @@
+ A
+ change a.txt
++git diff test
+
+LeeChaeYun@220-18 MINGW64 ~/desktop/test (master)
+$ git diff head^^ head
+diff --git a/a.txt b/a.txt
+index ffe305e..6ed291c 100644
+--- a/a.txt
++++ b/a.txt
+@@ -1,2 +1,3 @@
+ A
+ change a.txt
++git diff test
+diff --git a/d.txt b/d.txt
+new file mode 100644
+index 0000000..1784810
+--- /dev/null
++++ b/d.txt
+@@ -0,0 +1 @@
++D
+
+// 브랜치 간의 비교도 가능
